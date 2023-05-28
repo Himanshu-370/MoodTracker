@@ -6,6 +6,7 @@ import { useTheme } from "@emotion/react";
 
 const Tile = ({ index }) => {
   const theme = useTheme();
+  const [open, setOpen] = useState(false); // Set "open" state to false
   const [color, setColor] = useState("#C9DBB2");
   const [hovered, setHovered] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -32,6 +33,7 @@ const Tile = ({ index }) => {
 
   const handleCloseModal = () => {
     setModalVisible(false); // Set modalVisible state to false to close the modal
+    setOpen(true);
   };
 
   const handleOk = () => {
@@ -50,10 +52,10 @@ const Tile = ({ index }) => {
       {hovered && <span className="date">{getDate(index)}</span>}
       <Modal
         title={getDate(index)}
-        visible={modalVisible} // Use "visible" instead of "open"
+        visible={modalVisible}
         onOk={handleOk}
         okText="Edit Details"
-        onCancel={handleCloseModal} // Use "handleCloseModal" instead of "handleCancel"
+        onCancel={() => setOpen(false)}
         footer={[
           <Button key="cancel" onClick={handleCloseModal}>
             Cancel
