@@ -53,3 +53,14 @@ MoodKalender is built using the MERN (MongoDB, Express.js, React, Node.js) stack
 Contributions to MoodKalender are welcome! If you encounter any issues, discover bugs, or have suggestions for improvements, please feel free to open an issue or submit a pull request on the project's GitHub repository.
 
 When contributing, please follow the established coding conventions, provide clear commit messages, and document any significant changes or additions.
+
+## Contact
+
+If you have any questions or inquiries about MoodKalender, you can reach us through the following channels:
+
+- [Himanshu](https://github.com/Himanshu-370)
+- [Charuhas](https://github.com/Charuhas10)
+- [Gazal](https://github.com/Gazal026)
+- [Amaan](https://github.com/amaan14999)
+
+Feel free to connect with us and share your feedback or suggestions.
