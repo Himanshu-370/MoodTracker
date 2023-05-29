@@ -154,6 +154,7 @@ const theme = createTheme({
       alignItems: "center",
       padding: "2rem",
       marginTop: "3rem",
+      boxShadow: "0 0 10px rgba(0,0,0,0.2)",
     },
     moodBtnBox: {
       display: "flex",

@@ -1,33 +1,44 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 
 function Footer() {
   const theme = useTheme();
   return (
     <Box>
-      <div className="Footer">
-        <div>
+      <hr />
+      <Box sx={theme.display.flexDisplayCol}>
+        <Box>
           <Typography
-            variant="h3"
+            variant="caption"
             style={{
               color: "#2b3467",
-              fontSize: "1.5rem",
               marginBottom: "1rem",
             }}
             textAlign="center"
           >
-            <hr />
-            Contact Us
+            Made with ❤️ by Team{" "}
+            <a
+              href="https://github.com/Himanshu-370/moodKalendar"
+              style={{
+                fontWeight: "700",
+                color: "black",
+                textDecoration: "underline",
+              }}
+            >
+              MoodKalender
+            </a>
           </Typography>
-        </div>
-        <div>
+        </Box>
+        <Box>
           <Typography
-            variant="h5"
-            style={{
-              justifyContent: "center",
+            variant="caption"
+            sx={{
               display: "flex",
-              fontSize: "1rem",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
             }}
           >
             <a href="https://github.com/Himanshu-370">Himanshu</a> |
@@ -35,19 +46,8 @@ function Footer() {
             <a href="https://github.com/Charuhas10">Charuhas</a> |
             <a href="https://github.com/amaan14999">Amaan</a>
           </Typography>
-          <br />
-          <Typography
-            variant="h5"
-            style={{
-              justifyContent: "center",
-              display: "flex",
-              fontSize: "1rem",
-            }}
-          >
-            ©MoodKalender
-          </Typography>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Box>
   );
 }

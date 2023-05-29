@@ -15,7 +15,9 @@ function Navbar() {
     <React.Fragment>
       <Box sx={theme.navbar}>
         <Box>
-          <Box sx={theme.button.navBtn}>F.</Box>
+          <Box sx={theme.button.navBtn}>
+            <a href="/">moodKalendar.</a>
+          </Box>
         </Box>
 
         <Box sx={theme.display.flexDisplayRow}>
@@ -30,15 +32,7 @@ function Navbar() {
             </Link>
           </Button>
 
-          {isAuthenticated ? (
-            <>
-              <LogoutButton />
-            </>
-          ) : (
-            <>
-              <LoginButton />
-            </>
-          )}
+          {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </Box>
       </Box>
     </React.Fragment>

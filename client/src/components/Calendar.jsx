@@ -21,7 +21,7 @@ function Calendar() {
           textAlign="center"
           style={{ color: "#2b3467", fontSize: "3rem", marginBottom: "3rem" }}
         >
-          Flow provides an array of features <br />
+          MoodKalendar provides an array of features <br />
           to explore and enjoy
         </Typography>
 
@@ -29,7 +29,8 @@ function Calendar() {
           src={calendar}
           alt="Add to your calendar"
           style={{
-            width: "80%",
+            width: "100%",
+            maxWidth: "600px",
             height: "auto",
             marginBottom: "1.5rem",
             borderRadius: "20px",

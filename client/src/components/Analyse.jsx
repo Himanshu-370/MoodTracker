@@ -24,7 +24,8 @@ function Analyse() {
               src={analyseimg}
               alt="analyse"
               style={{
-                width: "80%",
+                width: "100%",
+                maxWidth: "600px",
                 height: "auto",
                 marginBottom: "1.5rem",
                 borderRadius: "20px",

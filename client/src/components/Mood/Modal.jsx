@@ -71,7 +71,7 @@ const Modalweb = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button variant="contained" onClick={showModal}>
         Add Mood to Calendar
       </Button>
       <Modal
