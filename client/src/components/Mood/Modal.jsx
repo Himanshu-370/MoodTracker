@@ -72,7 +72,7 @@ const Modalweb = () => {
   return (
     <>
       <Button variant="contained" onClick={showModal}>
-        Add Mood to Calendar
+        Add Mood to Calendarr
       </Button>
       <Modal
         title="Add Mood to Calendar"
@@ -103,7 +103,7 @@ const Modalweb = () => {
               {moodIcons.map((icon, i) => (
                 <Button
                   key={i}
-                  sx={theme.moodPage.moodBtn}
+                  sx={theme.moodPage.moodBtn} // Add the sx property here
                   onClick={() => setMood(icon.icon)}
                 >
                   <Box>{icon.icon}</Box>

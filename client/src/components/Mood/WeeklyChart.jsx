@@ -32,45 +32,70 @@ const MoodStats = () => {
   };
 
   const prepareChartData = () => {
-    // Group moods by date
+    const moodData = {
+      "🙁": {
+        label: "Rough day",
+        color: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgba(255, 99, 132, 1)",
+      },
+      "😐": {
+        label: "Not good",
+        color: "rgba(255, 159, 64, 0.2)",
+        borderColor: "rgba(255, 159, 64, 1)",
+      },
+      "🙂": {
+        label: "Not bad",
+        color: "rgba(255, 205, 86, 0.2)",
+        borderColor: "rgba(255, 205, 86, 1)",
+      },
+      "😄": {
+        label: "Good",
+        color: "rgba(75, 192, 192, 0.2)",
+        borderColor: "rgba(75, 192, 192, 1)",
+      },
+      "🤗": {
+        label: "Great!",
+        color: "rgba(54, 162, 235, 0.2)",
+        borderColor: "rgba(54, 162, 235, 1)",
+      },
+    };
+
     const groupedMoods = {};
     moods.forEach((mood) => {
       const moodDate = new Date(mood.date).toLocaleDateString();
       if (!groupedMoods[moodDate]) {
-        groupedMoods[moodDate] = [];
+        groupedMoods[moodDate] = {};
       }
-      groupedMoods[moodDate].push(mood);
+      if (!groupedMoods[moodDate][mood.mood]) {
+        groupedMoods[moodDate][mood.mood] = 0;
+      }
+      groupedMoods[moodDate][mood.mood]++;
     });
 
-    // Extract unique dates and their respective mood counts
-    const labels = Object.keys(groupedMoods);
-    const moodCounts = labels.map((date) => groupedMoods[date].length);
+    const sortedDates = Object.keys(groupedMoods).sort(
+      (a, b) => new Date(a) - new Date(b)
+    );
+    const lastFiveDates = sortedDates.slice(-5);
+
+    const labels = lastFiveDates;
+    const datasets = Object.entries(moodData).map(
+      ([moodIcon, { label, color, borderColor }]) => {
+        const moodCounts = labels.map(
+          (date) => groupedMoods[date][moodIcon] || 0
+        );
+        return {
+          label,
+          data: moodCounts,
+          backgroundColor: color,
+          borderColor,
+          borderWidth: 1,
+        };
+      }
+    );
 
     const data = {
       labels,
-      datasets: [
-        {
-          label: ["🙁", "😐", "🙂", "😄", "🤗"],
-          data: moodCounts,
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-            "rgba(255, 205, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-          ],
-          borderColor: [
-            "rgb(255, 99, 132)",
-            "rgb(255, 159, 64)",
-            "rgb(255, 205, 86)",
-            "rgb(75, 192, 192)",
-            "rgb(54, 162, 235)",
-            "rgb(153, 102, 255)",
-          ],
-          borderWidth: 1,
-        },
-      ],
+      datasets,
     };
 
     return data;
@@ -88,7 +113,15 @@ const MoodStats = () => {
                 display: false,
               },
               legend: {
-                display: false,
+                display: true,
+                labels: {
+                  usePointStyle: true,
+                },
+              },
+            },
+            scales: {
+              x: {
+                maxTicksLimit: 5,
               },
             },
           }}

@@ -5,7 +5,7 @@ import theme from "./assets/theme";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Welcome from "./components/Mood/Welcome";
 import Footer from "./components/Footer";

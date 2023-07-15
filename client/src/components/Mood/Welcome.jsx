@@ -10,8 +10,6 @@ function Welcome() {
   const theme = useTheme();
   const { user } = useAuth0();
 
-  console.log(user);
-
   return (
     <React.Fragment>
       <Box sx={theme.display}>
@@ -23,7 +21,7 @@ function Welcome() {
             <Typography variant="subtitle">How was your day today?</Typography>
           </Box>
           <Box sx={{ marginTop: "1rem" }}>
-            <Modal />
+            {/* <Modal /> */}
           </Box>
         </Box>
         <Stats />

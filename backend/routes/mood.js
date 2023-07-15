@@ -30,7 +30,7 @@ router.post("/mood", async (req, res) => {
   }
 });
 
-router.get("/mood", async (req, res) => {
+router.get("/mood/:id", async (req, res) => {
   const { id } = req.query;
 
   try {

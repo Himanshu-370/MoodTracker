@@ -26,7 +26,7 @@ function Footer() {
                 textDecoration: "underline",
               }}
             >
-              MoodKalender
+              moodKalendar
             </a>
           </Typography>
         </Box>
